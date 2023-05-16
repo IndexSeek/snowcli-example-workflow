@@ -20,6 +20,7 @@ jobs:
           SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
           SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
         run: | 
+          mkdir ~/.snowsql
           echo "[connections.awesome] \                               
           accountname = $(echo "$SNOWFLAKE_ACCOUNT") \
           username = $(echo "$SNOWFLAKE_USER") \
