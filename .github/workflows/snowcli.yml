@@ -30,10 +30,10 @@ jobs:
         SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
       run: | 
         mkdir ~/.snowsql
-        echo "[connections.awesome] \                               
-        accountname = $(echo "$SNOWFLAKE_ACCOUNT") \
-        username = $(echo "$SNOWFLAKE_USER") \
-        password = $(echo "$SNOWFLAKE_PASSWORD")" > ~/.snowsql/config
+        echo "[connections.awesome]
+          accountname = $SNOWFLAKE_ACCOUNT
+          username = $SNOWFLAKE_USER
+          password = $SNOWFLAKE_PASSWORD" > ~/.snowsql/config
         snow login --config ~/.snowsql/config --connection awesome
     - name: Execute SQL
       run: snow sql --query "SELECT 1;"
